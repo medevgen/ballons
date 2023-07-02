@@ -1,0 +1,134 @@
+*, ::after, ::before
+    margin: 0
+    padding: 0
+    // box-sizing: border-box
+html
+    font-size: 62.5% //10px
+
+body
+    font-family: 'Roboto', sans-serif
+    font-weight: 400
+    color: #777777
+    font-size: 1.6rem
+    letter-spacing: .2rem
+    padding: 5rem
+    background-color: white
+
+.container
+    background-color: #F7F7F7
+
+.header
+    position: relative
+    height: 95vh
+    background: linear-gradient(90deg, rgba(186, 133, 84, 0.70) 0%, rgba(1, 1, 1, 0.70) 100%), url(../img/header_background.jpg) center / cover no-repeat
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%)
+    &__logo
+        position: absolute
+        height: 7rem
+        width: 5.6rem
+        left: 5rem
+        top: 5rem
+    &__box
+        position: absolute
+        top: 40%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 100%
+        text-align: center
+.title-first
+    color: #FFF
+    line-height: normal
+    &__main
+        display: block
+        font-size: 5rem
+        font-weight: 800
+        line-height: 6rem
+        letter-spacing: 1rem
+        text-transform: uppercase
+        margin-bottom: 1rem
+        animation-name: leftToRight
+        animation-duration: 1.7s 
+        animation-delay: 1s 
+        animation-timing-function: ease
+        backface-visibility: hidden
+    &__secondary
+        display: block
+        font-size: 4rem
+        font-weight: 300
+        line-height: 4.8rem
+        letter-spacing: .5rem
+        animation-name: rightToLeft
+        animation-duration: 1.7s 
+        animation-delay: 1s 
+        animation-timing-function: ease
+        backface-visibility: hidden
+        margin-bottom: 6.5rem
+
+.btn
+    &:link, &:visited
+        text-decoration: none
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: .5rem;
+        color: #777777
+        border-radius: 5rem
+        background: #FFF
+        padding: 1.5rem 4rem
+        display: inline-block
+        transition: all .3s
+        position: relative
+    &:hover
+        transform: translateY(-4px)
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3)
+        &::after
+            opacity: 0
+            transform: scaleX(1.5) scaleY(1.7)
+            
+    &:active
+        transform: translateY(-2px)
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1)
+    &::after
+        content: ""
+        border-radius: 5rem
+        background: #FFF
+        width: 100%
+        height: 100%
+        display: inline-block
+        position: absolute
+        top: 0
+        left: 0
+        z-index: -1
+        transition: all .4s
+    &_animated
+        animation: BtnToUp 0.5s ease-out .7s
+        animation-fill-mode: backwards
+
+
+@keyframes BtnToUp 
+    0%
+        opacity:  0
+        transform: translateY(5rem)        
+  
+    100%
+        opacity: 1
+        transform: translateY(0rem)
+
+@keyframes leftToRight 
+    0%
+        opacity:  0
+        transform: translateX(-10rem)        
+    80%   
+        transform: translateX(1rem)
+    100%
+        opacity: 1
+        transform: translateX(0px)
+
+@keyframes rightToLeft 
+    0%
+        opacity:  0
+        transform: translateX(10rem)        
+    80%   
+        transform: translateX(-1rem)
+    100%
+        opacity: 1
+        transform: translateX(0px)
